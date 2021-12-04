@@ -62,7 +62,7 @@ if (!defined('START')) die;
                     <a class="button is-danger">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-light">
+                    <a href="/?page=login" class="button is-light">
                         Log in
                     </a>
                 </div>
