@@ -10,7 +10,7 @@ if (!defined('START')) die;
         <p class="subtitle">
             De leverancier voor al uw elektrische vervoermiddelen
         </p>
-        <a class="button is-warning is-large">
+        <a href="/?page=contact" class="button is-warning is-large">
             <strong>Neem contact op</strong>
         </a>
     </div>

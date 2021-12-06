@@ -59,7 +59,7 @@ if (!defined('START')) die;
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-danger">
+                    <a href="/?page=register" class="button is-danger">
                         <strong>Sign up</strong>
                     </a>
                     <a href="/?page=login" class="button is-light">
