@@ -3,7 +3,7 @@
 if (!defined('START')) die;
 
 $page = 'home';
-$pages = ['home', 'contact', 'login'];
+$pages = ['home', 'contact', 'login', 'register'];
 if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
