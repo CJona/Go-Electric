@@ -62,16 +62,16 @@ $user = new User();
             <div class="navbar-item">
                 <div class="buttons">
                     <?php if (!$user->isloggedin()): ?>
-                    <a href="/?page=register" class="button is-light">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a href="/?page=login" class="button is-light">
-                        Log in
-                    </a>
+                        <a href="/?page=register" class="button is-light">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a href="/?page=login" class="button is-light">
+                            Log in
+                        </a>
                     <?php else: ?>
-                    <a href="/?page=logout" class="button is-light">
-                        Log out
-                    </a>
+                        <a href="/?page=logout" class="button is-light">
+                            Log out
+                        </a>
                     <?php endif; ?>
                 </div>
             </div>

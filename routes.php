@@ -3,7 +3,15 @@
 if (!defined('START')) die;
 
 $page = 'home';
-$pages = ['home', 'contact', 'login', 'register'];
+$pages = ['home', 'contact'];
+$user = new User();
+
+if ($user->isloggedin()){
+    $pages = [...$pages, 'logout'];
+} else {
+    $pages = [...$pages, 'login', 'register'];
+}
+
 if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }

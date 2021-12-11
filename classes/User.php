@@ -75,6 +75,9 @@ class User
     {
         // de sessie cookie van de gebruiker verwijderen
         session_destroy();
+
+        // doorsturen naar home pagina
+        header('Location: /');
     }
     public function isloggedin(): bool
     {
