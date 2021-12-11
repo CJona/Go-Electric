@@ -1,7 +1,6 @@
 <?php
 // zodat de code alleen vanuit index.php uitgevoerd mag worden
 if (!defined('START')) die;
-var_dump($_POST);
 
 // Fout meldingen in formulier
 $errors = [];

@@ -1,6 +1,8 @@
 <?php
 // zodat de code alleen vanuit index.php uitgevoerd mag worden
 if (!defined('START')) die;
+$user = new User();
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -59,12 +61,18 @@ if (!defined('START')) die;
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
+                    <?php if (!$user->isloggedin()): ?>
                     <a href="/?page=register" class="button is-light">
                         <strong>Sign up</strong>
                     </a>
                     <a href="/?page=login" class="button is-light">
                         Log in
                     </a>
+                    <?php else: ?>
+                    <a href="/?page=logout" class="button is-light">
+                        Log out
+                    </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
