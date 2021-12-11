@@ -18,7 +18,6 @@ class User
             return null;
         }
     }
-
     public function login(string $email, string $password): void
     {
         // $db vanuit index.php ophalen

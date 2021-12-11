@@ -1,35 +1,73 @@
 <?php
 // zodat de code alleen vanuit index.php uitgevoerd mag worden
 if (!defined('START')) die;
+var_dump($_POST);
+
+// Fout meldingen in formulier
+$errors = [];
+
+// we controlen of we deze velden vanuit het formulier hebben gekregen
+if (isset($_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumber"])){
+    // formulier waardes ophalen
+    [$name, $email, $password, $phonenumber] = [$_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumber"]];
+
+    if (strlen($name) < 3 || strlen($name) > 50){
+        $errors[] = "Jouw naam moet langer dan 3 en korter dan 50 charachters zijn";
+    }
+
+    if (strlen($email) < 3 || strlen($email) > 50){
+        $errors[] = "Jouw email moet langer dan 3 en korter dan 50 charachters zijn";
+    }
+
+    if (strlen($password) < 6){
+        $errors[] = "Jouw wachtwoord moet langer dan 6 charachters zijn";
+    }
+
+    if (strlen($phonenumber) !== 10 && !ctype_digit($phonenumber)){
+        $errors[] = "Ongeldig telefoon nummer";
+    }
+
+    if (!$errors){
+        $user = new User();
+        $user->register($email, $password, $phonenumber, $name);
+    }
+}
+
 ?>
 <div class="container is-max-desktop py-6">
-
-    <form class="box">
+    <?php if ($errors): ?>
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li><?php echo $error; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+    <form method="post" action="/?page=register" class="box">
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Alex example">
+                <input class="input" name="name" type="text" placeholder="Alex example">
             </div>
         </div>
 
         <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input class="input" type="email" placeholder="e.g. alex@example.com">
+                <input class="input" name="email" type="email" placeholder="e.g. alex@example.com">
             </div>
         </div>
 
         <div class="field">
             <label class="label">Password</label>
             <div class="control">
-                <input class="input" type="password" placeholder="********">
+                <input class="input" name="password" type="password" placeholder="********">
             </div>
         </div>
 
         <div class="field">
             <label class="label">Phone number</label>
             <div class="control">
-                <input class="input" type="text" placeholder="0612345678">
+                <input class="input" name="phonenumber" type="text" placeholder="0612345678">
             </div>
         </div>
 

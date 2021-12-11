@@ -14,6 +14,8 @@ $db = new Medoo\Medoo([
     'username' => 'root',
     'password' => ''
 ]);
+require 'classes/User.php';
+
 
 require 'functions.php';
 require 'routes.php';
