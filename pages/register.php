@@ -11,15 +11,15 @@ if (isset($_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumb
     [$name, $email, $password, $phonenumber] = [$_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumber"]];
 
     if (strlen($name) < 3 || strlen($name) > 50){
-        $errors[] = "Jouw naam moet langer dan 3 en korter dan 50 charachters zijn";
+        $errors[] = "uw naam moet langer dan 3 en korter dan 50 charachters zijn";
     }
 
     if (strlen($email) < 3 || strlen($email) > 50){
-        $errors[] = "Jouw email moet langer dan 3 en korter dan 50 charachters zijn";
+        $errors[] = "uw email moet langer dan 3 en korter dan 50 charachters zijn";
     }
 
     if (strlen($password) < 6){
-        $errors[] = "Jouw wachtwoord moet langer dan 6 charachters zijn";
+        $errors[] = "uw wachtwoord moet langer dan 6 charachters zijn";
     }
 
     if (strlen($phonenumber) !== 10 && !ctype_digit($phonenumber)){

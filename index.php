@@ -15,6 +15,7 @@ $db = new Medoo\Medoo([
     'password' => ''
 ]);
 require 'classes/User.php';
+require 'classes/Product.php';
 
 
 require 'functions.php';
