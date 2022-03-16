@@ -8,5 +8,6 @@ class Product
         global $db;
 
         return $db->select('products', '*');
+
     }
 }

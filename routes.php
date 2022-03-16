@@ -3,7 +3,7 @@
 if (!defined('START')) die;
 
 $page = 'home';
-$pages = ['home', 'contact'];
+$pages = ['home', 'contact', 'about'];
 $user = new User();
 
 if ($user->isloggedin()){

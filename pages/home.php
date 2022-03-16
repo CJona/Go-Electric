@@ -28,7 +28,7 @@ $product = new Product();
         <div class="tile is-ancestor">
             <div class="tile is-parent">
                 <article class="tile is-child box">
-                    <p class="title">One</p>
+                    <p class="title">one</p>
                     <p class="subtitle">Subtitle</p>
                 </article>
             </div>

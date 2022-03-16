@@ -22,23 +22,24 @@ class User
     {
         // $db vanuit index.php ophalen
         global $db;
-
         // controleren of gegevens al bestaan
         $user = $db->get('users', ['email', 'password', 'id'], [
             'email' => $email
         ]);
+
         if(!$user) {
             die('Lukt niet');
         }
 
         // wachtwoord vergelijken
-        if ($user['password'] === sha1($password));
+        if ($user['password'] === sha1($password)) {
+            // id in session user_id stoppen
+            $_SESSION['user_id'] = $user['id'];
 
-        // id in session user_id stoppen
-        $_SESSION['user_id'] = $user['id'];
+            // doorsturen naar contact pagina
+            header('Location: /?page=contact');
+        }
 
-        // doorsturen naar contact pagina
-        header('Location: /?page=contact');
     }
     public function register(string $email, string $password, string $phonenumber, string $name): void
     {
