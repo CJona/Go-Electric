@@ -10,6 +10,7 @@ $user = new User();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Go Electric</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-calendar@5.0.3/dist/css/bulma-calendar.min.css">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -49,10 +50,6 @@ $user = new User();
                     </a>
                     <a href="/?page=contact" class="navbar-item">
                         Contact
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                        Report an issue
                     </a>
                 </div>
             </div>

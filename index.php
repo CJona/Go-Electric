@@ -16,6 +16,7 @@ $db = new Medoo\Medoo([
 ]);
 require 'classes/User.php';
 require 'classes/Product.php';
+require 'classes/Contact.php';
 
 
 require 'functions.php';

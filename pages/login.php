@@ -11,11 +11,11 @@ if (isset($_POST["email"], $_POST["password"])){
     [$email, $password] = [$_POST["email"], $_POST["password"]];
 
     if (strlen($email) < 3 || strlen($email) > 50){
-        $errors[] = "uw email moet langer dan 3 en korter dan 50 charachters zijn";
+        $errors[] = "uw email moet langer dan 3 en korter dan 50 karakters zijn";
     }
 
     if (strlen($password) < 6){
-        $errors[] = "uw wachtwoord moet langer dan 6 charachters zijn";
+        $errors[] = "uw wachtwoord moet langer dan 6 karakters zijn";
     }
 
     if (!$errors){
