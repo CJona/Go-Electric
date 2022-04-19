@@ -15,7 +15,7 @@ class Product
         string $description,
         string $price,
         string $stock,
-        string $image,
+        ?string $image,
         int $user_id,
     ): bool
     {
@@ -33,37 +33,46 @@ class Product
         return true;
     }
 
-    public function update(string $name, string $description, string $price, string $stock){
+    public function get(int $id): ?array
+    {
+        global $db;
 
+        return $db->get('products', '*', [
+            'id' => $id
+        ]);
+    }
+
+    public function update(
+        int $product_id,
+        string $name,
+        string $description,
+        string $price,
+        string $stock,
+        ?string $image,
+        int $user_id,
+    ): void
+    {
         global $db;
 
         $db->update('products', [
-            'user_id' => 1,
+            'user_id' => $user_id,
             'category_id' => 1,
-            'name' =>  $name,
+            'name' => $name,
+            'description' => $description,
             'price' => $price,
             'stock' => $stock,
-            'description' => $description,
+            'image' => $image
+        ], [
+            'id' => $product_id
         ]);
-        return true;
-
     }
 
-//    public function select($name, $price, $stock, $description){
-//
-//        global $db;
-//
-//        $db->select('products', [
-//            'user_id' => 1,
-//            'category_id' => 1,
-//            'name' => $name,
-//            'price' => $price,
-//            'stock' => $stock,
-//            'description' => $description,
-//        ]);
-//        return true;
-//
-//    }
+    public function delete(int $product_id): void
+    {
+        global $db;
 
-
+        $db->delete('products', [
+            'id' => $product_id
+        ]);
+    }
 }

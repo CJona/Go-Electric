@@ -10,7 +10,7 @@ if ($user->isloggedin()){
     $pages = [...$pages, 'logout', 'contact'];
 
     if ($user->isemployee()) {
-        $pages = [...$pages, 'product_create', 'agenda'];
+        $pages = [...$pages, 'product_create', 'product_edit', 'product_delete', 'agenda'];
     }
 
 } else {
@@ -20,6 +20,13 @@ if ($user->isloggedin()){
 if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
-require 'pages/parts/header.php';
+
+if($page !== 'product_delete') {
+    require 'pages/parts/header.php';
+}
+
 require 'pages/'.$page.'.php';
-require 'pages/parts/footer.php';
+
+if($page !== 'product_delete') {
+    require 'pages/parts/footer.php';
+}

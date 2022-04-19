@@ -3,6 +3,7 @@
 if (!defined('START')) die;
 
 $product = new Product();
+$user = new User();
 ?>
 <section class="hero is-danger" xmlns="http://www.w3.org/1999/html">
     <div class="hero-body">
@@ -27,7 +28,7 @@ $product = new Product();
     </section>
     <div class="columns features">
         <?php foreach ($product->all() as $item): ?>
-            <div class="column is-2">
+            <div class="column is-3">
                 <div class="card is-shady">
                     <?php if($item["image"]): ?>
                         <div class="card-image">
@@ -42,6 +43,10 @@ $product = new Product();
                             <p><b>Beschrijving: </b><?php echo $item['description']?></p>
                             <p><b>Prijs: </b><?php echo $item['price']?></p>
                             <p><b>Stock: </b><?php echo $item['stock']?></p>
+                            <?php if($user->isemployee()): ?>
+                                <a href="/index.php?page=product_edit&id=<?php echo $item['id']; ?>">Bewerk product</a>
+                                <a class="button is-danger" href="/index.php?page=product_delete&id=<?php echo $item['id']; ?>">Verwijder product</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
