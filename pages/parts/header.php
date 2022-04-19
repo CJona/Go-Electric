@@ -31,9 +31,13 @@ $user = new User();
             <a href="/" class="navbar-item">
                 Home
             </a>
-
+            
             <a href="/?page=contact" class="navbar-item">
                 Contact
+            </a>
+
+            <a href="/?page=about" class="navbar-item">
+                About
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -42,15 +46,17 @@ $user = new User();
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a href="/?page=about" class="navbar-item">
-                        About
-                    </a>
-                    <a href="/?page=product_create" class="navbar-item">
-                        Product Aanmaken
-                    </a>
-                    <a href="/?page=contact" class="navbar-item">
-                        Contact
-                    </a>
+                    <?php if($user->isemployee()): ?>
+                        <a href="/?page=product_create" class="navbar-item">
+                            Product Aanmaken
+                        </a>
+                        <a href="/?page=product_create" class="navbar-item">
+                            Categorie Aanmaken
+                        </a>
+                        <a href="/?page=agenda" class="navbar-item">
+                            Afspraken
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

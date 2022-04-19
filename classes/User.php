@@ -84,4 +84,12 @@ class User
     {
         return isset($_SESSION['user_id']);
     }
+    public function isemployee(): bool
+    {
+        $user = $this->get();
+        if ($user !== null) {
+            return $user['is_employee'] === '1';
+        }
+        return false;
+    }
 }

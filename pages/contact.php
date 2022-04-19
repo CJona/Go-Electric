@@ -27,7 +27,7 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
         $errors[] = "Uw moet een geldige datum en tijd selecteren";
     }
 
-    if (!$errors){// todo: class aanmaken en in database stoppen
+    if (!$errors){
         $contact = new Contact();
         $contact->send($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["message"], $_POST["date"]);
     }
@@ -49,13 +49,19 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
                 Bij ons kunt U in een fijne sfeer waarbij het hele gezin welkom is een gratis en ongedwongen afspraak te maken voor een proefrit en advies. Het enige wat we van U vragen is een datum en tijd af te spreken via het contactformulier.
                 <br>
                 We zien U graag terug in onze winkel voor een proefrit.
-
             </p>
             <div class="column is-6">
                 <figure class="image is-4by3">
                     <img src="https://picsum.photos/800/600/?random" alt="Description">
                 </figure>
             </div>
+
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+
         </div>
         <div class="column is-one-third has-text-left">
             <?php if ($errors): ?>
@@ -98,7 +104,10 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
                 </div>
 
                 <div class="control">
-                    <button type="submit" value="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                    <button  type="submit" value="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                    <span class="icon">
+                        <i class="create.php"></i>
+                    </span>
                 </div>
             </form>
         </div>

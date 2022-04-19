@@ -7,7 +7,12 @@ $pages = ['home', 'contact', 'about'];
 $user = new User();
 
 if ($user->isloggedin()){
-    $pages = [...$pages, 'logout'];
+    $pages = [...$pages, 'logout', 'contact'];
+
+    if ($user->isemployee()) {
+        $pages = [...$pages, 'product_create', 'agenda'];
+    }
+
 } else {
     $pages = [...$pages, 'login', 'register'];
 }

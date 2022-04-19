@@ -22,9 +22,6 @@ if (!defined('START')) die;
                 Go Electric
             </h1>
 
-            <p>
-                Over ons!
-            </p>
         </div>
     </section>
 
