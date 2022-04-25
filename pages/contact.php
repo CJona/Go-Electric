@@ -55,13 +55,6 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
                     <img src="https://picsum.photos/800/600/?random" alt="Description">
                 </figure>
             </div>
-
-            <div class="social-media">
-                <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-
         </div>
         <div class="column is-one-third has-text-left">
             <?php if ($errors): ?>
@@ -104,7 +97,7 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
                 </div>
 
                 <div class="control">
-                    <button  type="submit" value="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                    <button  type="submit" value="submit" class="button  is-danger is-fullwidth has-text-weight-medium is-medium">Send Message</button>
                     <span class="icon">
                         <i class="create.php"></i>
                     </span>

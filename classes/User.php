@@ -37,7 +37,7 @@ class User
             $_SESSION['user_id'] = $user['id'];
 
             // doorsturen naar contact pagina
-            header('Location: /?page=contact');
+            header('Location: /');
         }
 
     }
@@ -69,7 +69,7 @@ class User
         $_SESSION['user_id'] = $user_id;
 
         // doorsturen naar contact pagina
-        header('Location: /?page=contact');
+        header('Location: /');
 
     }
     public function logout(): void

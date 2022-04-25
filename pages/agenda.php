@@ -27,11 +27,6 @@ $contact = new Contact();
         <?php foreach ($contact->all() as $item): ?>
             <div class="column is-2">
                 <div class="card is-shady">
-                    <div class="card-image">
-                        <figure class="image is-3by3">
-                            <img src="https://picsum.photos/800/600/?random" alt="Placeholder image" class="modal-button" data-target="modal-image2">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="content">
                             <p><b>Email: </b><?php echo $item['email']?></p>
@@ -40,6 +35,7 @@ $contact = new Contact();
                             <p><b>Bericht: </b><?php echo $item['message']?></p>
                             <p><b>Datum: </b><?php echo $item['date']?></p>
                         </div>
+                        <a class="button is-danger is-focus is-rounded is-outlined" href="/index.php?page=afspraken_delete&id=<?php echo $item['id']; ?>">Verwijder afspraak</a>
                     </div>
                 </div>
             </div>

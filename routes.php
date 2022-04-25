@@ -10,7 +10,7 @@ if ($user->isloggedin()){
     $pages = [...$pages, 'logout', 'contact'];
 
     if ($user->isemployee()) {
-        $pages = [...$pages, 'product_create', 'product_edit', 'product_delete', 'agenda'];
+        $pages = [...$pages, 'product_create', 'product_edit', 'product_delete', 'agenda', 'afspraken_delete'];
     }
 
 } else {
@@ -30,3 +30,4 @@ require 'pages/'.$page.'.php';
 if($page !== 'product_delete') {
     require 'pages/parts/footer.php';
 }
+
