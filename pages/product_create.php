@@ -9,11 +9,11 @@ $errors = [];
 if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"], $_FILES["image"])){
 
     if (strlen($_POST["name"]) < 3 || strlen($_POST["name"]) > 50){
-        $errors[] = "Uw naam moet langer dan 3 en korter dan 50 karakters zijn";
+        $errors[] = "De ingevulde naam moet langer dan 3 en korter dan 50 karakters zijn";
     }
 
     if (strlen($_POST["description"]) < 3 || strlen($_POST["description"]) > 200){
-        $errors[] = "Uw beschrijving moet langer dan 3 en korter dan 200 karakters zijn";
+        $errors[] = "De ingevulde beschrijving moet langer dan 3 en korter dan 200 karakters zijn";
     }
 
     if ($_POST["price"] < 2 || $_POST["price"] > 9999){
@@ -55,7 +55,7 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
         }
 
         $product = new Product();
-        $product->insert(
+        $inserted = $product->insert(
                 $_POST["name"],
                 $_POST["description"],
                 $_POST["price"],
@@ -78,8 +78,12 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
 
     </div>
 </section>
-
 <form class="container" enctype="multipart/form-data" action="/index.php?page=product_create" method="POST">
+    <?php if (isset($inserted) && $inserted === true): ?>
+        <div class="notification is-success">
+            Product <?php echo $_POST["name"]; ?> aangemaakt!
+        </div>
+    <?php endif; ?>
     <?php if ($errors): ?>
         <ul>
             <?php foreach ($errors as $error): ?>

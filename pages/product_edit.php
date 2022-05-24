@@ -6,6 +6,8 @@ if (!defined('START')) die;
 $errors = [];
 
 $products = new Product();
+$categories = new Category();
+$category = null;
 
 if(
         empty($_GET['id']) ||
@@ -14,15 +16,17 @@ if(
     die('Ongeldige gegevens, probeer opnieuw');
 }
 
+$all_categories = $categories->all();
+
 // we controlen of we deze velden vanuit het formulier hebben gekregen
 if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"])){
 
     if (strlen($_POST["name"]) < 3 || strlen($_POST["name"]) > 50){
-        $errors[] = "Uw naam moet langer dan 3 en korter dan 50 karakters zijn";
+        $errors[] = "De ingevulde naam moet langer dan 3 en korter dan 50 karakters zijn";
     }
 
     if (strlen($_POST["description"]) < 3 || strlen($_POST["description"]) > 100){
-        $errors[] = "Uw beschrijving moet langer dan 3 en korter dan 100 karakters zijn";
+        $errors[] = "De ingevulde beschrijving moet langer dan 3 en korter dan 100 karakters zijn";
     }
 
     if ($_POST["price"] < 3 || $_POST["price"] > 9999){
@@ -32,6 +36,17 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
     if ($_POST["stock"] < 3 || $_POST["stock"] > 9999){
         $errors[] = "u moet een geldig getal tussen 3 en 9999 invoeren voor uw voorraad.";
     }
+
+    if(isset($_POST['category'])) {
+        $check = array_filter($all_categories, function($single_category) {
+            return $single_category['id'] === $_POST['category'];
+        });
+
+        if(!empty($check)) {
+            $category = (int)$_POST['category'];
+        }
+    }
+
 
 
     $uploaded_file = null;
@@ -65,13 +80,14 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
         }
 
         $products->update(
-                $_GET['id'],
-                $_POST["name"],
-                $_POST["description"],
-                $_POST["price"],
-                $_POST["stock"],
-                $uploaded_file,
-                $_SESSION["user_id"]
+            $_GET['id'],
+            $_POST["name"],
+            $_POST["description"],
+            $_POST["price"],
+            $_POST["stock"],
+            $uploaded_file,
+            $category,
+            $_SESSION["user_id"]
         );
 
         $product = $products->get($_GET['id']);
@@ -108,6 +124,19 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
                         <input type="text" name="description" value="<?php echo $product['description']; ?>" placeholder="description"><br>
                         <input type="number" name="price" value="<?php echo $product['price']; ?>" placeholder="price"><br>
                         <input type="number" name="stock" value="<?php echo $product['stock']; ?>" placeholder="stock"><br>
+                        <select name="category">
+                            <option value="">Geen categorie</option>
+                            <?php foreach($all_categories as $single_category): ?>
+                                <option
+                                    value="<?php echo $single_category['id']; ?>"
+                                    <?php if($product["category_id"] == $single_category['id']): ?>
+                                        selected
+                                    <?php endif; ?>
+                                >
+                                    <?php echo $single_category['name']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select><br>
                         <input type="file" accept="image/*" name="image"><br>
                         <input class="button is-succes is-rounded" type="submit" value="Submit"><br>
                     </div>

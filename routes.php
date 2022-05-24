@@ -10,7 +10,12 @@ if ($user->isloggedin()){
     $pages = [...$pages, 'logout', 'contact'];
 
     if ($user->isemployee()) {
-        $pages = [...$pages, 'product_create', 'product_edit', 'product_delete', 'agenda', 'afspraken_delete'];
+        $pages = [
+            ...$pages,
+            'category_create',
+            'product_create', 'product_edit', 'product_delete',
+            'agenda', 'afspraken_delete',
+        ];
     }
 
 } else {

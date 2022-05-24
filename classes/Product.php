@@ -49,6 +49,7 @@ class Product
         string $price,
         string $stock,
         ?string $image,
+        ?int $category_id,
         int $user_id,
     ): void
     {
@@ -56,7 +57,7 @@ class Product
 
         $db->update('products', [
             'user_id' => $user_id,
-            'category_id' => 1,
+            'category_id' => $category_id,
             'name' => $name,
             'description' => $description,
             'price' => $price,

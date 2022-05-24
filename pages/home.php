@@ -52,6 +52,13 @@ $user = new User();
                             <p><b>Beschrijving: <br> </b><?php echo $item['description']?></p>
                             <p><b>Prijs: </b> $<?php echo $item['price']?></p>
                             <p><b>Voorraad: </b><?php echo $item['stock']?></p>
+                            <?php
+                                if($item['category_id']):
+                                    $categories = new Category();
+                                    $category = $categories->get($item['category_id']);
+                            ?>
+                                <p><b>Categorie: </b><?php echo $category['name']; ?></p>
+                            <?php endif; ?>
                             <?php if($user->isemployee()): ?>
                                 <a class="button is-rounded is-primary is-focus is-outlined is-responsive is-normal" href="/index.php?page=product_edit&id=<?php echo $item['id']; ?>">Bewerk product</a>
                                 <a class="button is-danger is-focus is-rounded is-outlined" href="/index.php?page=product_delete&id=<?php echo $item['id']; ?>">Verwijder product</a>
