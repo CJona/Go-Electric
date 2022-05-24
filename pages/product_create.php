@@ -12,16 +12,16 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
         $errors[] = "Uw naam moet langer dan 3 en korter dan 50 karakters zijn";
     }
 
-    if (strlen($_POST["description"]) < 3 || strlen($_POST["description"]) > 100){
-        $errors[] = "Uw beschrijving moet langer dan 3 en korter dan 100 karakters zijn";
+    if (strlen($_POST["description"]) < 3 || strlen($_POST["description"]) > 200){
+        $errors[] = "Uw beschrijving moet langer dan 3 en korter dan 200 karakters zijn";
     }
 
-    if ($_POST["price"] < 3 || $_POST["price"] > 9999){
-        $errors[] = "U moet een geldig getal tussen 3 en 9999 invoeren voor de prijs.";
+    if ($_POST["price"] < 2 || $_POST["price"] > 9999){
+        $errors[] = "U moet een geldig getal tussen 2 en 9999 invoeren voor de prijs.";
     }
 
-    if ($_POST["stock"] < 3 || $_POST["stock"] > 9999){
-        $errors[] = "u moet een geldig getal tussen 3 en 9999 invoeren voor uw voorraad.";
+    if ($_POST["stock"] < 1 || $_POST["stock"] > 9999){
+        $errors[] = "u moet een geldig getal tussen 1 en 9999 invoeren voor uw voorraad.";
     }
 
     $uploaded_file = null;

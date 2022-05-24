@@ -34,13 +34,14 @@ $user = new User();
             </p>
         </div>
     </section>
-    <div class="columns features">
+
+    <div class="columns is-multiline is-mobile features">
         <?php foreach ($product->all() as $item): ?>
-            <div class="column is-3">
+            <div class="column is-one-quarter-desktop is-half-mobile">
                 <div class="card is-shady">
                     <?php if($item["image"]): ?>
                         <div class="card-image">
-                            <figure class="image is-3by3">
+                            <figure class="image is-2by2">
                                 <img src="/images/<?php echo $item["image"]; ?>" alt="Product image">
                             </figure>
                         </div>
@@ -49,8 +50,8 @@ $user = new User();
                         <div class="content">
                             <h1><b><?php echo $item['name']?></b></h1>
                             <p><b>Beschrijving: <br> </b><?php echo $item['description']?></p>
-                            <p><b>Prijs: </b><?php echo $item['price']?></p>
-                            <p><b>Stock: </b><?php echo $item['stock']?></p>
+                            <p><b>Prijs: </b> $<?php echo $item['price']?></p>
+                            <p><b>Voorraad: </b><?php echo $item['stock']?></p>
                             <?php if($user->isemployee()): ?>
                                 <a class="button is-rounded is-primary is-focus is-outlined is-responsive is-normal" href="/index.php?page=product_edit&id=<?php echo $item['id']; ?>">Bewerk product</a>
                                 <a class="button is-danger is-focus is-rounded is-outlined" href="/index.php?page=product_delete&id=<?php echo $item['id']; ?>">Verwijder product</a>

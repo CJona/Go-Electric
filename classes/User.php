@@ -28,7 +28,7 @@ class User
         ]);
 
         if(!$user) {
-            die('Lukt niet');
+            die('Probeer het nog een keer');
         }
 
         // wachtwoord vergelijken

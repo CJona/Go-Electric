@@ -32,8 +32,8 @@ $contact = new Contact();
                             <p><b>Email: </b><?php echo $item['email']?></p>
                             <p><b>Mobiel: </b><?php echo $item['phonenumber']?></p>
                             <p><b>Naam: </b><?php echo $item['name']?></p>
-                            <p><b>Bericht: </b><?php echo $item['message']?></p>
-                            <p><b>Datum: </b><?php echo $item['date']?></p>
+                            <p><b>Bericht: </b><br><?php echo $item['message']?></p>
+                            <p><b>Datum: </b><br><?php echo $item['date']?></p>
                         </div>
                         <a class="button is-danger is-focus is-rounded is-outlined" href="/index.php?page=afspraken_delete&id=<?php echo $item['id']; ?>">Verwijder afspraak</a>
                     </div>

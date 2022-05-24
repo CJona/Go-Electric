@@ -6,7 +6,7 @@ session_start();
 define('START',1);
 
 // Database connectie
-require 'classes/Medoo.php';
+require_once 'classes/Medoo.php';
 $db = new Medoo\Medoo([
     'type' => 'mysql',
     'host' => 'localhost',
