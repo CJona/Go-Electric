@@ -23,8 +23,8 @@ if (isset($_POST["email"], $_POST["password"])){
         $user->login($email, $password);
     }
 }
-
 ?>
+<?php require 'parts/header.php'; ?>
 <div class="container is-max-desktop py-6">
     <?php if ($errors): ?>
         <ul>
@@ -51,3 +51,4 @@ if (isset($_POST["email"], $_POST["password"])){
         <button class="button is-primary">Sign in</button>
     </form>
 </div>
+<?php require 'parts/footer.php'; ?>

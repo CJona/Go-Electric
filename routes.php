@@ -26,14 +26,5 @@ if ($user->isloggedin()){
 if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
-
-if($page !== 'product_delete' && $page !== 'category_delete') {
-    require 'pages/parts/header.php';
-}
-
 require 'pages/'.$page.'.php';
-
-if($page !== 'product_delete' && $page !== 'category_delete') {
-    require 'pages/parts/footer.php';
-}
 

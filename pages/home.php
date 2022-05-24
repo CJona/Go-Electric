@@ -5,6 +5,7 @@ if (!defined('START')) die;
 $product = new Product();
 $user = new User();
 ?>
+<?php require 'parts/header.php'; ?>
 <section class="hero is-danger" xmlns="http://www.w3.org/1999/html">
     <div class="hero-body">
         <p class="title">
@@ -70,5 +71,4 @@ $user = new User();
         <?php endforeach; ?>
     </div>
 </div>
-
-
+<?php require 'parts/footer.php'; ?>

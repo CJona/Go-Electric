@@ -33,6 +33,7 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
     }
 }
 ?>
+<?php require 'parts/header.php'; ?>
 <section class="hero is-danger">
     <div class="hero-body">
         <h1 class="title is-2">Contact Us</h1>
@@ -106,3 +107,4 @@ if (isset($_POST["email"], $_POST["phonenumber"], $_POST["name"], $_POST["messag
         </div>
     </div>
 </div>
+<?php require 'parts/footer.php'; ?>

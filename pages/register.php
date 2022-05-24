@@ -31,8 +31,8 @@ if (isset($_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumb
         $user->register($email, $password, $phonenumber, $name);
     }
 }
-
 ?>
+<?php require 'parts/header.php'; ?>
 <div class="container is-max-desktop py-6">
     <?php if ($errors): ?>
         <ul>
@@ -73,3 +73,4 @@ if (isset($_POST["name"], $_POST["email"], $_POST["password"], $_POST["phonenumb
         <button class="button is-primary">Register</button>
     </form>
 </div>
+<?php require 'parts/footer.php'; ?>

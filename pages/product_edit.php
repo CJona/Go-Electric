@@ -95,7 +95,7 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
     }
 }
 ?>
-
+<?php require 'parts/header.php'; ?>
 <section class="hero is-danger">
     <div class="hero-body">
         <p class="title">
@@ -146,3 +146,4 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
         </div>
     </div>
 </form>
+<?php require 'parts/footer.php'; ?>

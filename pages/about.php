@@ -2,19 +2,7 @@
 // zodat de code alleen vanuit index.php uitgevoerd mag worden
 if (!defined('START')) die;
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About</title>
-</head>
-
-
-
-<body>
+<?php require 'parts/header.php'; ?>
 <section class="hero is-fullheight is-default is-bold">
     <section class="hero is-danger">
         <div class="hero-body">
@@ -66,6 +54,4 @@ if (!defined('START')) die;
         </div>
     </div>
 </section>
-<script src="../js/bulma.js"></script>
-</body>
-
+<?php require 'parts/footer.php'; ?>

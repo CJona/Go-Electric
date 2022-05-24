@@ -32,7 +32,7 @@ if (isset($_POST["name"])){
     }
 }
 ?>
-
+<?php require 'parts/header.php'; ?>
 <section class="hero is-danger">
     <div class="hero-body">
         <p class="title">
@@ -67,3 +67,4 @@ if (isset($_POST["name"])){
         </div>
     </div>
 </form>
+<?php require 'parts/footer.php'; ?>
