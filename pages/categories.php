@@ -5,6 +5,17 @@ if (!defined('START')) die;
 $categories = new Category();
 $user = new User();
 ?>
+<section class="hero is-danger" xmlns="http://www.w3.org/1999/html">
+    <div class="hero-body">
+        <p class="title">
+            Go-Electric
+        </p>
+        <p class="subtitle">
+            Bekijk hier uw categorieën
+        </p>
+
+    </div>
+</section>
 <div class="container py-4">
     <section class="hero is-small">
         <div class="hero-body">

@@ -23,9 +23,9 @@ $contact = new Contact();
             </p>
         </div>
     </section>
-    <div class="columns features">
+    <div class="columns is-multiline is-mobile features">
         <?php foreach ($contact->all() as $item): ?>
-            <div class="column is-2">
+            <div class="column is-one-quarter-desktop is-half-mobile">
                 <div class="card is-shady">
                     <div class="card-content">
                         <div class="content">
