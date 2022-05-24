@@ -90,6 +90,7 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
             $_SESSION["user_id"]
         );
 
+        // data refreshen
         $product = $products->get($_GET['id']);
     }
 }

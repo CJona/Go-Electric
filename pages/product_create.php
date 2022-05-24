@@ -5,6 +5,10 @@ if (!defined('START')) die;
 // Fout meldingen in formulier
 $errors = [];
 
+$categories = new Category();
+$category = null;
+$all_categories = $categories->all();
+
 // we controlen of we deze velden vanuit het formulier hebben gekregen
 if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"], $_FILES["image"])){
 
@@ -22,6 +26,16 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
 
     if ($_POST["stock"] < 1 || $_POST["stock"] > 9999){
         $errors[] = "u moet een geldig getal tussen 1 en 9999 invoeren voor uw voorraad.";
+    }
+
+    if(isset($_POST['category'])) {
+        $check = array_filter($all_categories, function($single_category) {
+            return $single_category['id'] === $_POST['category'];
+        });
+
+        if(!empty($check)) {
+            $category = (int)$_POST['category'];
+        }
     }
 
     $uploaded_file = null;
@@ -56,11 +70,12 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
 
         $product = new Product();
         $inserted = $product->insert(
-                $_POST["name"],
-                $_POST["description"],
-                $_POST["price"],
-                $_POST["stock"],
-                $uploaded_file,
+            $_POST["name"],
+            $_POST["description"],
+            $_POST["price"],
+            $_POST["stock"],
+            $uploaded_file,
+            $category,
             $_SESSION["user_id"]
         );
     }
@@ -101,6 +116,14 @@ if (isset($_POST["name"], $_POST["description"], $_POST["price"], $_POST["stock"
                         <input type="text" name="description" placeholder="description"><br>
                         <input type="number" name="price" placeholder="price"><br>
                         <input type="number" name="stock" placeholder="stock"><br>
+                        <select name="category">
+                            <option value="">Geen categorie</option>
+                            <?php foreach($all_categories as $single_category): ?>
+                                <option value="<?php echo $single_category['id']; ?>">
+                                    <?php echo $single_category['name']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select><br>
                         <input type="file" accept="image/*" name="image"><br>
                         <input class="button is-succes is-rounded" type="submit" value="Submit"><br>
                     </div>

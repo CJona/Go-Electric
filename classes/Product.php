@@ -16,6 +16,7 @@ class Product
         string $price,
         string $stock,
         ?string $image,
+        ?int $category_id,
         int $user_id,
     ): bool
     {
@@ -23,12 +24,12 @@ class Product
 
         $db->insert('products', [
             'user_id' => $user_id,
-            'category_id' => 1,
+            'category_id' => $category_id,
             'name' => $name,
             'description' => $description,
             'price' => $price,
             'stock' => $stock,
-            'image' => $image
+            'image' => $image,
         ]);
         return true;
     }

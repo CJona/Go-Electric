@@ -53,6 +53,9 @@ $user = new User();
                             <a href="/?page=category_create" class="navbar-item">
                                 Categorie Aanmaken
                             </a>
+                            <a href="/?page=categories" class="navbar-item">
+                                Alle categorieën
+                            </a>
 
                             <a href="/?page=agenda" class="navbar-item">
                                 Afspraken

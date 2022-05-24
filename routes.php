@@ -12,7 +12,8 @@ if ($user->isloggedin()){
     if ($user->isemployee()) {
         $pages = [
             ...$pages,
-            'category_create',
+            'categories',
+            'category_create', 'category_edit', 'category_delete',
             'product_create', 'product_edit', 'product_delete',
             'agenda', 'afspraken_delete',
         ];
@@ -26,13 +27,13 @@ if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
     $page = $_GET['page'];
 }
 
-if($page !== 'product_delete') {
+if($page !== 'product_delete' && $page !== 'category_delete') {
     require 'pages/parts/header.php';
 }
 
 require 'pages/'.$page.'.php';
 
-if($page !== 'product_delete') {
+if($page !== 'product_delete' && $page !== 'category_delete') {
     require 'pages/parts/footer.php';
 }
 
